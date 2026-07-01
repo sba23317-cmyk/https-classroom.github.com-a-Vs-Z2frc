@@ -1,0 +1,498 @@
+hduser@BDAM:~$ cd ~
+hduser@BDAM:~$ hdfs dfs -mkdir /CA2_sba2331777
+hduser@BDAM:~$ hdfs dfs -ls /
+Found 1 items
+drwxr-xr-x   - hduser supergroup          0 2026-07-01 19:27 /CA2_sba2331777
+hduser@BDAM:~$ find ~ -name "*.csv"
+hduser@BDAM:~$ hdfs dfs -put ~/Downloads/HEO17.20260701203323.csv /CA2_12345678/
+put: `/CA2_12345678/': No such file or directory: `hdfs://localhost:9000/CA2_12345678'
+hduser@BDAM:~$ find ~ -name "*.csv"
+hduser@BDAM:~$ find ~ -name "*.csv"
+/home/hduser/Downloads/HEO17.20260701204603.csv
+hduser@BDAM:~$ hdfs dfs -put ~/Downloads/HEO17.20260701203323.csv /CA2_12345678/
+put: `/CA2_12345678/': No such file or directory: `hdfs://localhost:9000/CA2_12345678'
+hduser@BDAM:~$ hdfs dfs -ls/CA2_sba2331777
+-ls/CA2_sba2331777: Unknown command
+Usage: hadoop fs [generic options]
+	[-appendToFile [-n] <localsrc> ... <dst>]
+	[-cat [-ignoreCrc] <src> ...]
+	[-checksum [-v] <src> ...]
+	[-chgrp [-R] GROUP PATH...]
+	[-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
+	[-chown [-R] [OWNER][:[GROUP]] PATH...]
+	[-concat <target path> <src path> <src path> ...]
+	[-copyFromLocal [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+	[-copyToLocal [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+	[-count [-q] [-h] [-v] [-t [<storage type>]] [-u] [-x] [-e] [-s] <path> ...]
+	[-cp [-f] [-p | -p[topax]] [-d] [-t <thread count>] [-q <thread pool queue size>] <src> ... <dst>]
+	[-createSnapshot <snapshotDir> [<snapshotName>]]
+	[-deleteSnapshot <snapshotDir> <snapshotName>]
+	[-df [-h] [<path> ...]]
+	[-du [-s] [-h] [-v] [-x] <path> ...]
+	[-expunge [-immediate] [-fs <path>]]
+	[-find <path> ... <expression> ...]
+	[-get [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+	[-getfacl [-R] <path>]
+	[-getfattr [-R] {-n name | -d} [-e en] <path>]
+	[-getmerge [-nl] [-skip-empty-file] <src> <localdst>]
+	[-head <file>]
+	[-help [cmd ...]]
+	[-ls [-C] [-d] [-h] [-q] [-R] [-t] [-S] [-r] [-u] [-e] [<path> ...]]
+	[-mkdir [-p] <path> ...]
+	[-moveFromLocal [-f] [-p] [-l] [-d] <localsrc> ... <dst>]
+	[-moveToLocal <src> <localdst>]
+	[-mv <src> ... <dst>]
+	[-put [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+	[-renameSnapshot <snapshotDir> <oldName> <newName>]
+	[-rm [-f] [-r|-R] [-skipTrash] [-safely] <src> ...]
+	[-rmdir [--ignore-fail-on-non-empty] <dir> ...]
+	[-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
+	[-setfattr {-n name [-v value] | -x name} <path>]
+	[-setrep [-R] [-w] <rep> <path> ...]
+	[-stat [format] <path> ...]
+	[-tail [-f] [-s <sleep interval>] <file>]
+	[-test -[defswrz] <path>]
+	[-text [-ignoreCrc] <src> ...]
+	[-touch [-a] [-m] [-t TIMESTAMP (yyyyMMdd:HHmmss) ] [-c] <path> ...]
+	[-touchz <path> ...]
+	[-truncate [-w] <length> <path> ...]
+	[-usage [cmd ...]]
+
+Generic options supported are:
+-conf <configuration file>        specify an application configuration file
+-D <property=value>               define a value for a given property
+-fs <file:///|hdfs://namenode:port> specify default filesystem URL to use, overrides 'fs.defaultFS' property from configurations.
+-jt <local|resourcemanager:port>  specify a ResourceManager
+-files <file1,...>                specify a comma-separated list of files to be copied to the map reduce cluster
+-libjars <jar1,...>               specify a comma-separated list of jar files to be included in the classpath
+-archives <archive1,...>          specify a comma-separated list of archives to be unarchived on the compute machines
+
+The general command line syntax is:
+command [genericOptions] [commandOptions]
+
+hduser@BDAM:~$ hdfs dfs -ls /CA2_sba233177
+ls: `/CA2_sba233177': No such file or directory
+hduser@BDAM:~$ hdfs dfs -put ~/Downloads/HEO17.20260701204603.csv /CA2_sba2331777/
+hduser@BDAM:~$ hdfs dfs -ls /CA2_sba2331777
+Found 1 items
+-rw-r--r--   1 hduser supergroup     497117 2026-07-01 19:51 /CA2_sba2331777/HEO17.20260701204603.csv
+hduser@BDAM:~$ hdfs dfs -ls /CA2_sba2331777
+Found 1 items
+-rw-r--r--   1 hduser supergroup     497117 2026-07-01 19:51 /CA2_sba2331777/HEO17.20260701204603.csv
+hduser@BDAM:~$ hdfs dfs -cat /CA2_sba2331777/HEO17.20260701204603.csv | head
+"STATISTIC","Statistics","TLIST(A1)","Graduation Year","C03428V04135","Field of Study","C03427V04134","NFQ Level","C04530V05314","Country of Domicile","UNIT","VALUE"
+"HEO17","Number of Graduates","2010","2010","-","All fields of education","-","All NFQ Levels","IE","Ireland","Number","32260"
+"HEO17","Number of Graduates","2010","2010","-","All fields of education","-","All NFQ Levels","ZZWORA","All countries excluding Ireland","Number","2320"
+"HEO17","Number of Graduates","2010","2010","-","All fields of education","-","All NFQ Levels","99","Country of domicile unknown","Number","0"
+"HEO17","Number of Graduates","2010","2010","-","All fields of education","-","All NFQ Levels","-","All countries","Number","34570"
+"HEO17","Number of Graduates","2010","2010","-","All fields of education","06","NFQ Level 6","IE","Ireland","Number","1170"
+"HEO17","Number of Graduates","2010","2010","-","All fields of education","06","NFQ Level 6","ZZWORA","All countries excluding Ireland","Number","30"
+"HEO17","Number of Graduates","2010","2010","-","All fields of education","06","NFQ Level 6","99","Country of domicile unknown","Number","0"
+"HEO17","Number of Graduates","2010","2010","-","All fields of education","06","NFQ Level 6","-","All countries","Number","1200"
+"HEO17","Number of Graduates","2010","2010","-","All fields of education","07","NFQ Level 7","IE","Ireland","Number","3930"
+cat: Unable to write to output stream.
+hduser@BDAM:~$ pyspark
+pyspark: command not found
+hduser@BDAM:~$ sudo apt update
+[sudo] password for hduser: 
+Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Hit:2 http://ie.archive.ubuntu.com/ubuntu noble InRelease                      
+Get:3 https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 InRelease [3,005 B]
+Get:4 http://ie.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:5 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [816 kB]
+Get:6 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [184 kB]
+Get:7 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [45.0 kB]
+Get:8 http://security.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [11.7 kB]
+Get:9 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1,129 kB]
+Get:10 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [258 kB]
+Get:11 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1,173 kB]
+Get:12 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [230 kB]
+Get:13 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [76.2 kB]
+Get:14 http://security.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [24.2 kB]
+Get:15 http://security.ubuntu.com/ubuntu noble-security/multiverse Translation-en [10.1 kB]
+Get:16 http://ie.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:17 https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0/multiverse amd64 Packages [79.9 kB]
+Get:18 http://ie.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,073 kB]
+Get:19 http://ie.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [266 kB]
+Get:20 http://ie.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [180 kB]
+Get:21 http://ie.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [17.6 kB]
+Get:22 http://ie.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1,196 kB]
+Get:23 http://ie.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [271 kB]
+Get:24 http://ie.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,659 kB]
+Get:25 http://ie.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [327 kB]
+Get:26 http://ie.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [388 kB]
+Get:27 http://ie.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [34.9 kB]
+Get:28 http://ie.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [11.8 kB]
+Get:29 http://ie.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:30 http://ie.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5,776 B]
+Get:31 http://ie.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [10.5 kB]
+Fetched 9,861 kB in 3s (3,581 kB/s)                             
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+45 packages can be upgraded. Run 'apt list --upgradable' to see them.
+hduser@BDAM:~$ java -version
+openjdk version "11.0.31" 2026-04-21
+OpenJDK Runtime Environment (build 11.0.31+11-post-1ubuntu1-24.04.2-Ubuntu)
+OpenJDK 64-Bit Server VM (build 11.0.31+11-post-1ubuntu1-24.04.2-Ubuntu, mixed mode, sharing)
+hduser@BDAM:~$ cd ~
+hduser@BDAM:~$ wget https://downloads.apache.org/spark/spark-3.5.8/spark-3.5.8-bin-hadoop3.tgztar -xzf spark-3.5.8-bin-hadoop3.tgz
+wget: invalid option -- 'z'
+wget: invalid option -- 'f'
+Usage: wget [OPTION]... [URL]...
+
+Try `wget --help' for more options.
+hduser@BDAM:~$ wget https://downloads.apache.org/spark/spark-3.5.8/spark-3.5.8-bin-hadoop3.tgtar -xzf spark-3.5.8-bin-hadoop3.tgz
+wget: invalid option -- 'z'
+wget: invalid option -- 'f'
+Usage: wget [OPTION]... [URL]...
+
+Try `wget --help' for more options.
+hduser@BDAM:~$ https://downloads.apache.org/spark/spark-3.5.8/spark-3.5.8-bin-hadoop3.tgz
+bash: https://downloads.apache.org/spark/spark-3.5.8/spark-3.5.8-bin-hadoop3.tgz: No such file or directory
+hduser@BDAM:~$ cd ~
+hduser@BDAM:~$ wget https://downloads.apache.org/spark/spark-3.5.8/spark-3.5.8-bin-hadoop3.tgz
+--2026-07-01 20:18:58--  https://downloads.apache.org/spark/spark-3.5.8/spark-3.5.8-bin-hadoop3.tgz
+Resolving downloads.apache.org (downloads.apache.org)... 95.216.224.44, 88.99.208.237, 2a01:4f8:10a:39da::2, ...
+Connecting to downloads.apache.org (downloads.apache.org)|95.216.224.44|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 401378872 (383M) [application/x-gzip]
+Saving to: ‘spark-3.5.8-bin-hadoop3.tgz’
+
+spark-3.5.8-bin-had 100%[===================>] 382.78M  15.2MB/s    in 24s     
+
+2026-07-01 20:19:22 (15.8 MB/s) - ‘spark-3.5.8-bin-hadoop3.tgz’ saved [401378872/401378872]
+
+hduser@BDAM:~$ ls -lh spark-3.5.8-bin-hadoop3.tgz
+-rw-rw-r-- 1 hduser hduser 383M Jan 12 04:34 spark-3.5.8-bin-hadoop3.tgz
+hduser@BDAM:~$ tar -xzf spark-3.5.8-bin-hadoop3.tgz
+hduser@BDAM:~$ ls
+Desktop                           Pictures
+Documents                         Public
+Downloads                         snap
+Generate_Data.txt                 spark-3.5.8-bin-hadoop3
+Generate_Synthetic_Year_Data.txt  spark-3.5.8-bin-hadoop3.tgz
+hadoop                            temp
+hadoop-3.4.3                      Templates
+hadoop-3.4.3.tar.gz               test
+hbase-2.5.13-bin.tar.gz           Videos
+Music                             week3.txt
+hduser@BDAM:~$ mv spark-3.5.8-bin-hadoop3 spark
+hduser@BDAM:~$ pyspark
+pyspark: command not found
+hduser@BDAM:~$ ls ~/spark/bin
+beeline               pyspark           spark-class.cmd      spark-shell.cmd
+beeline.cmd           pyspark2.cmd      spark-connect-shell  spark-sql
+docker-image-tool.sh  pyspark.cmd       sparkR               spark-sql2.cmd
+find-spark-home       run-example       sparkR2.cmd          spark-sql.cmd
+find-spark-home.cmd   run-example.cmd   sparkR.cmd           spark-submit
+load-spark-env.cmd    spark-class       spark-shell          spark-submit2.cmd
+load-spark-env.sh     spark-class2.cmd  spark-shell2.cmd     spark-submit.cmd
+hduser@BDAM:~$ nano ~/.bashrc
+hduser@BDAM:~$ source ~/.bashrc
+hduser@BDAM:~$ echo $SPARK_HOME
+/home/hduser/spark
+hduser@BDAM:~$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/hduser/hadoop/bin:/home/hduser/hadoop/sbin:/home/hduser/spark/bin:/home/hduser/spark/sbin:/home/hduser/hadoop/bin:/home/hduser/hadoop/sbin
+hduser@BDAM:~$ spark-shell
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/07/01 20:25:50 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Spark context Web UI available at http://BDAM:4040
+Spark context available as 'sc' (master = local[*], app id = local-1782937551377).
+Spark session available as 'spark'.
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 3.5.8
+      /_/
+         
+Using Scala version 2.12.18 (OpenJDK 64-Bit Server VM, Java 11.0.31)
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+scala> :quit
+hduser@BDAM:~$ pyspark
+Python 3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/07/01 20:26:27 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 3.5.8
+      /_/
+
+Using Python version 3.12.3 (main, Mar 23 2026 19:04:32)
+Spark context Web UI available at http://BDAM:4040
+Spark context available as 'sc' (master = local[*], app id = local-1782937589114).
+SparkSession available as 'spark'.
+>>> df = spark.read.csv(
+...     "hdfs:///CA2_sba2331777/HEO17.20260701204603.csv",
+...     header=True,
+...     inferSchema=True
+... )
+>>> df.printSchema()                                                            
+root
+ |-- STATISTIC: string (nullable = true)
+ |-- Statistics: string (nullable = true)
+ |-- TLIST(A1): integer (nullable = true)
+ |-- Graduation Year: integer (nullable = true)
+ |-- C03428V04135: string (nullable = true)
+ |-- Field of Study: string (nullable = true)
+ |-- C03427V04134: string (nullable = true)
+ |-- NFQ Level: string (nullable = true)
+ |-- C04530V05314: string (nullable = true)
+ |-- Country of Domicile: string (nullable = true)
+ |-- UNIT: string (nullable = true)
+ |-- VALUE: integer (nullable = true)
+
+>>> df.show(5)
++---------+-------------------+---------+---------------+------------+--------------------+------------+--------------+------------+--------------------+------+-----+
+|STATISTIC|         Statistics|TLIST(A1)|Graduation Year|C03428V04135|      Field of Study|C03427V04134|     NFQ Level|C04530V05314| Country of Domicile|  UNIT|VALUE|
++---------+-------------------+---------+---------------+------------+--------------------+------------+--------------+------------+--------------------+------+-----+
+|    HEO17|Number of Graduates|     2010|           2010|           -|All fields of edu...|           -|All NFQ Levels|          IE|             Ireland|Number|32260|
+|    HEO17|Number of Graduates|     2010|           2010|           -|All fields of edu...|           -|All NFQ Levels|      ZZWORA|All countries exc...|Number| 2320|
+|    HEO17|Number of Graduates|     2010|           2010|           -|All fields of edu...|           -|All NFQ Levels|          99|Country of domici...|Number|    0|
+|    HEO17|Number of Graduates|     2010|           2010|           -|All fields of edu...|           -|All NFQ Levels|           -|       All countries|Number|34570|
+|    HEO17|Number of Graduates|     2010|           2010|           -|All fields of edu...|          06|   NFQ Level 6|          IE|             Ireland|Number| 1170|
++---------+-------------------+---------+---------------+------------+--------------------+------------+--------------+------------+--------------------+------+-----+
+only showing top 5 rows
+
+>>> df.count()
+3432
+>>> len(df.columns)
+12
+>>> from pyspark.sql.functions import col,isnan,when,count
+>>> 
+>>> df.select([
+...     count(when(col(c).isNull(), c)).alias(c)
+...     for c in df.columns
+... ]).show()
++---------+----------+---------+---------------+------------+--------------+------------+---------+------------+-------------------+----+-----+
+|STATISTIC|Statistics|TLIST(A1)|Graduation Year|C03428V04135|Field of Study|C03427V04134|NFQ Level|C04530V05314|Country of Domicile|UNIT|VALUE|
++---------+----------+---------+---------------+------------+--------------+------------+---------+------------+-------------------+----+-----+
+|        0|         0|        0|              0|           0|             0|           0|        0|           0|                  0|   0|    0|
++---------+----------+---------+---------------+------------+--------------+------------+---------+------------+-------------------+----+-----+
+
+>>> df = df.dropDuplicates()
+>>> df_clean = df.na.drop()
+>>> print("Original:", df.count())
+Original: 3432
+>>> print("Cleaned:", df_clean.count())
+Cleaned: 3432
+>>> df_clean.printSchema()
+root
+ |-- STATISTIC: string (nullable = true)
+ |-- Statistics: string (nullable = true)
+ |-- TLIST(A1): integer (nullable = true)
+ |-- Graduation Year: integer (nullable = true)
+ |-- C03428V04135: string (nullable = true)
+ |-- Field of Study: string (nullable = true)
+ |-- C03427V04134: string (nullable = true)
+ |-- NFQ Level: string (nullable = true)
+ |-- C04530V05314: string (nullable = true)
+ |-- Country of Domicile: string (nullable = true)
+ |-- UNIT: string (nullable = true)
+ |-- VALUE: integer (nullable = true)
+
+>>> df_clean.show(5)
++---------+-------------------+---------+---------------+------------+--------------------+------------+------------+------------+--------------------+------+-----+
+|STATISTIC|         Statistics|TLIST(A1)|Graduation Year|C03428V04135|      Field of Study|C03427V04134|   NFQ Level|C04530V05314| Country of Domicile|  UNIT|VALUE|
++---------+-------------------+---------+---------------+------------+--------------------+------------+------------+------------+--------------------+------+-----+
+|    HEO17|Number of Graduates|     2010|           2010|          03|Social Sciences, ...|          08| NFQ Level 8|      ZZWORA|All countries exc...|Number|   60|
+|    HEO17|Number of Graduates|     2010|           2010|          05|Natural Sciences,...|          09| NFQ Level 9|      ZZWORA|All countries exc...|Number|   30|
+|    HEO17|Number of Graduates|     2011|           2011|          08|Agriculture, Fore...|          08| NFQ Level 8|          IE|             Ireland|Number|  250|
+|    HEO17|Number of Graduates|     2012|           2012|          06|Information and C...|          08| NFQ Level 8|           -|       All countries|Number|  720|
+|    HEO17|Number of Graduates|     2013|           2013|          06|Information and C...|          10|NFQ Level 10|      ZZWORA|All countries exc...|Number|   10|
++---------+-------------------+---------+---------------+------------+--------------------+------------+------------+------------+--------------------+------+-----+
+only showing top 5 rows
+
+>>> VALUE
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'VALUE' is not defined
+>>> df_clean.describe().show()
+26/07/01 20:43:54 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
++-------+---------+-------------------+------------------+------------------+-----------------+--------------------+------------------+--------------+------------+-------------------+------+------------------+
+|summary|STATISTIC|         Statistics|         TLIST(A1)|   Graduation Year|     C03428V04135|      Field of Study|      C03427V04134|     NFQ Level|C04530V05314|Country of Domicile|  UNIT|             VALUE|
++-------+---------+-------------------+------------------+------------------+-----------------+--------------------+------------------+--------------+------------+-------------------+------+------------------+
+|  count|     3432|               3432|              3432|              3432|             3432|                3432|              3432|          3432|        3432|               3432|  3432|              3432|
+|   mean|     NULL|               NULL|            2016.0|            2016.0|              5.5|                NULL|               8.0|          NULL|        99.0|               NULL|  NULL|1184.4638694638695|
+| stddev|     NULL|               NULL|3.7422026191829243|3.7422026191829243|2.872741735442086|                NULL|1.4144608673609718|          NULL|         0.0|               NULL|  NULL| 4073.546510795055|
+|    min|    HEO17|Number of Graduates|              2010|              2010|                -|Agriculture, Fore...|                 -|All NFQ Levels|           -|      All countries|Number|                 0|
+|    max|    HEO17|Number of Graduates|              2022|              2022|               10|Social Sciences, ...|                10|   NFQ Level 9|      ZZWORA|            Ireland|Number|             46690|
++-------+---------+-------------------+------------------+------------------+-----------------+--------------------+------------------+--------------+------------+-------------------+------+------------------+
+
+>>> from pyspark.sql.functions import col
+>>> 
+>>> df_clean = df.filter(
+...     (col("Field of Study") != "All Fields of Study") &
+...     (col("NFQ Level") != "All NFQ Levels") &
+...     (col("Country of Domicile") != "All countries") &
+...     (col("VALUE").isNotNull())
+... )
+>>> df_clean.count()
+2145
+>>> graduates_by_year = (
+...     df_clean
+...     .groupBy("Graduation Year")
+...     .sum("VALUE")
+...     .orderBy("Graduation Year")
+... )
+>>> 
+>>> graduates_by_year.show()
++---------------+----------+
+|Graduation Year|sum(VALUE)|
++---------------+----------+
+|           2010|     69130|
+|           2011|     68950|
+|           2012|     70130|
+|           2013|     72300|
+|           2014|     73200|
+|           2015|     70370|
+|           2016|     74930|
+|           2017|     77270|
+|           2018|     81620|
+|           2019|     84620|
+|           2020|     89250|
+|           2021|     93350|
+|           2022|     90900|
++---------------+----------+
+
+>>> pdf1 = graduates_by_year.toPandas()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/hduser/spark/python/pyspark/sql/pandas/conversion.py", line 86, in toPandas
+    require_minimum_pandas_version()
+  File "/home/hduser/spark/python/pyspark/sql/pandas/utils.py", line 24, in require_minimum_pandas_version
+    from distutils.version import LooseVersion
+ModuleNotFoundError: No module named 'distutils'
+>>> 
+>>> import matplotlib.pyplot as plt
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'matplotlib'
+>>> 
+>>> plt.figure(figsize=(10,5))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'plt' is not defined
+>>> plt.plot(pdf1["Graduation Year"], pdf1["sum(VALUE)"])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'plt' is not defined
+>>> plt.title("Number of Graduates by Year")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'plt' is not defined
+>>> plt.xlabel("Year")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'plt' is not defined
+>>> plt.ylabel("Graduates")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'plt' is not defined
+>>> plt.grid(True)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'plt' is not defined
+>>> plt.show()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'plt' is not defined
+>>> top_fields = (
+...     df_clean
+...     .groupBy("Field of Study")
+...     .sum("VALUE")
+...     .orderBy(col("sum(VALUE)").desc())
+... )
+>>> 
+>>> top_fields.show()
++--------------------+----------+
+|      Field of Study|sum(VALUE)|
++--------------------+----------+
+|All fields of edu...|    508190|
+|Business, Adminis...|    126850|
+| Arts and Humanities|     78730|
+|  Health and Welfare|     72340|
+|Engineering, Manu...|     52970|
+|Natural Sciences,...|     50930|
+|Social Sciences, ...|     35100|
+|           Education|     32630|
+|Information and C...|     27170|
+|            Services|     21260|
+|Agriculture, Fore...|      9850|
++--------------------+----------+
+
+>>> country_stats = (
+...     df_clean
+...     .groupBy("Country of Domicile")
+...     .sum("VALUE")
+...     .orderBy(col("sum(VALUE)").desc())
+... )
+>>> 
+>>> country_stats.show()
++--------------------+----------+
+| Country of Domicile|sum(VALUE)|
++--------------------+----------+
+|             Ireland|    898830|
+|All countries exc...|    117190|
+|Country of domici...|         0|
++--------------------+----------+
+
+>>> nfq_analysis = (
+...     df_clean
+...     .groupBy("NFQ Level")
+...     .sum("VALUE")
+...     .orderBy(col("sum(VALUE)").desc())
+... )
+>>> 
+>>> nfq_analysis.show()
++------------+----------+
+|   NFQ Level|sum(VALUE)|
++------------+----------+
+| NFQ Level 8|    665230|
+| NFQ Level 9|    209280|
+| NFQ Level 7|     98680|
+| NFQ Level 6|     29590|
+|NFQ Level 10|     13240|
++------------+----------+
+
+>>> df_clean.write.mode("overwrite") \
+...     .csv(
+...         "hdfs:///CA2_sba2331777/cleaned_graduate_data",
+...         header=True
+...     )
+>>> hdfs dfs -ls /CA2_sba2331777/cleaned_graduate_data
+  File "<stdin>", line 1
+    hdfs dfs -ls /CA2_sba2331777/cleaned_graduate_data
+         ^^^
+SyntaxError: invalid syntax
+>>> df_clean.write.mode("overwrite") \
+...     .csv(
+...         "hdfs:///CA2_sba2331777/cleaned_graduate_data",
+...         header=True
+...     )
+>>> gedit
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'gedit' is not defined. Did you mean: 'exit'?
+>>> hdfs dfs -ls /CA2_sba2331777/cleaned_graduate_data
+  File "<stdin>", line 1
+    hdfs dfs -ls /CA2_sba2331777/cleaned_graduate_data
+         ^^^
+SyntaxError: invalid syntax
+>>> exit()
+hduser@BDAM:~$ hdfs dfs -ls /CA2_sba2331777/cleaned_graduate_data
+Found 2 items
+-rw-r--r--   1 hduser supergroup          0 2026-07-01 20:58 /CA2_sba2331777/cleaned_graduate_data/_SUCCESS
+-rw-r--r--   1 hduser supergroup     263530 2026-07-01 20:58 /CA2_sba2331777/cleaned_graduate_data/part-00000-ed4885c3-0538-4309-8886-9b15335202bc-c000.csv
+hduser@BDAM:~$ gedit
+
+
+
