@@ -1,0 +1,248 @@
+hduser@BDAM:~$ cd ~
+hduser@BDAM:~$ wget https://archive.apache.org/dist/hbase/2.5.13/hbase-2.5.13-bin.tar.gz tar -xzf hbase-2.5.13-bin.tar.gz
+wget: invalid option -- 'z'
+wget: invalid option -- 'f'
+Usage: wget [OPTION]... [URL]...
+
+Try `wget --help' for more options.
+hduser@BDAM:~$ wget https://archive.apache.org/dist/hbase/2.5.13/hbase-2.5.13-bin.tar.gz
+--2026-07-02 19:43:11--  https://archive.apache.org/dist/hbase/2.5.13/hbase-2.5.13-bin.tar.gz
+Resolving archive.apache.org (archive.apache.org)... 65.108.204.189, 2a01:4f9:1a:a084::2
+Connecting to archive.apache.org (archive.apache.org)|65.108.204.189|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 341915534 (326M) [application/x-gzip]
+Saving to: ‘hbase-2.5.13-bin.tar.gz.1’
+
+hbase-2.5.13-bin.ta 100%[===================>] 326.08M  6.26MB/s    in 1m 52s  
+
+2026-07-02 19:45:04 (2.91 MB/s) - ‘hbase-2.5.13-bin.tar.gz.1’ saved [341915534/341915534]
+
+hduser@BDAM:~$ tar -xzf hbase-2.5.13-bin.tar.gz
+hduser@BDAM:~$ mv hbase-2.5.13 hbase
+hduser@BDAM:~$ cd ~
+hduser@BDAM:~$ sudo mkdir /home/hduser/hbasedata
+[sudo] password for hduser: 
+hduser@BDAM:~$ sudo chown -R hduser:hduser hbasedata
+hduser@BDAM:~$ sudo chmod 777 hbasedata
+hduser@BDAM:~$ nano /home/hduser/hbase/conf/hbase-site.xml
+hduser@BDAM:~$ nano ~/.bashrc
+hduser@BDAM:~$ source ~/.bashrc
+hduser@BDAM:~$ nano ~/hbase/conf/hbase-env.sh
+hduser@BDAM:~$ start-hbase.sh
+start-hbase.sh: command not found
+hduser@BDAM:~$ jps
+16961 Jps
+hduser@BDAM:~$ hbase shell
+hbase: command not found
+hduser@BDAM:~$ ls ~
+CA2_sba2331777_Q1                 hbasedata
+Desktop                           Music
+Documents                         Pictures
+Downloads                         Public
+Generate_Data.txt                 snap
+Generate_Synthetic_Year_Data.txt  spark
+hadoop                            spark-3.5.8-bin-hadoop3.tgz
+hadoop-3.4.3                      temp
+hadoop-3.4.3.tar.gz               Templates
+hbase                             test
+hbase-2.5.13-bin.tar.gz           Videos
+hbase-2.5.13-bin.tar.gz.1         week3.txt
+hduser@BDAM:~$ ls ~/hbase/bin
+chaos-daemon.sh       hbase-daemon.sh         replication
+considerAsDead.sh     hbase-daemons.sh        rolling-restart.sh
+draining_servers.rb   hbase-jruby             shutdown_regionserver.rb
+get-active-master.rb  hbase_startup.jsh       start-hbase.cmd
+graceful_stop.sh      hirb.rb                 start-hbase.sh
+hbase                 local-master-backup.sh  stop-hbase.cmd
+hbase-cleanup.sh      local-regionservers.sh  stop-hbase.sh
+hbase.cmd             master-backup.sh        test
+hbase-common.sh       region_mover.rb         zookeepers.sh
+hbase-config.cmd      regionservers.sh
+hbase-config.sh       region_status.rb
+hduser@BDAM:~$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/hduser/spark/bin:/home/hduser/spark/sbin:/home/hduser/hadoop/bin:/home/hduser/hadoop/sbin:/home/hduser/spark/bin:/home/hduser/spark/sbin:/home/hduser/hadoop/bin:/home/hduser/hadoop/sbin
+hduser@BDAM:~$ echo $HBASE_HOME
+
+hduser@BDAM:~$ jps
+17049 Jps
+hduser@BDAM:~$ start-dfs.sh
+Starting namenodes on [localhost]
+Starting datanodes
+Starting secondary namenodes [BDAM]
+hduser@BDAM:~$ start-yarn.sh
+Starting resourcemanager
+Starting nodemanagers
+hduser@BDAM:~$ jps
+18448 Jps
+17484 DataNode
+17949 ResourceManager
+17726 SecondaryNameNode
+17262 NameNode
+18094 NodeManager
+hduser@BDAM:~$ ~/hbase/bin/start-hbase.sh
+/home/hduser/hbase/bin/hbase: line 860: /usr/lib/jvm/java-8-openjdk-amd64/bin/java: No such file or directory
+/home/hduser/hbase/bin/hbase: line 860: /usr/lib/jvm/java-8-openjdk-amd64/bin/java: No such file or directory
+running master, logging to /home/hduser/hbase/bin/../logs/hbase-hduser-master-BDAM.out
+/home/hduser/hbase/bin/hbase-daemon.sh: line 92: kill: (18592) - No such process
+
+in/java: No such file or directory
+: running regionserver, logging to /home/hduser/hbase/bin/../logs/hbase-hduser-regionserver-BDAM.out
+: /home/hduser/hbase/bin/hbase-daemon.sh: line 92: kill: (18671) - No such process
+: 
+: in/java: No such file or directory
+hduser@BDAM:~$ jps
+18742 Jps
+17484 DataNode
+17949 ResourceManager
+17726 SecondaryNameNode
+17262 NameNode
+18094 NodeManager
+hduser@BDAM:~$ ~/hbase/bin/hbase shell
+/home/hduser/hbase/bin/hbase: line 860: /usr/lib/jvm/java-8-openjdk-amd64/bin/java: No such file or directory
+hduser@BDAM:~$ readlink -f $(which java)
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java
+hduser@BDAM:~$ /usr/lib/jvm/java-11-openjdk-amd64
+bash: /usr/lib/jvm/java-11-openjdk-amd64: Is a directory
+hduser@BDAM:~$ nano ~/hbase/conf/hbase-env.sh
+hduser@BDAM:~$ grep JAVA_HOME ~/.bashrc
+hduser@BDAM:~$ ~/hbase/bin/start-hbase.sh
+/home/hduser/hbase/bin/hbase: line 860: /usr/lib/jvm/java-8-openjdk-amd64/bin/java: No such file or directory
+/home/hduser/hbase/bin/hbase: line 860: /usr/lib/jvm/java-8-openjdk-amd64/bin/java: No such file or directory
+running master, logging to /home/hduser/hbase/bin/../logs/hbase-hduser-master-BDAM.out
+/home/hduser/hbase/bin/hbase-daemon.sh: line 92: kill: (19028) - No such process
+
+in/java: No such file or directory
+: running regionserver, logging to /home/hduser/hbase/bin/../logs/hbase-hduser-regionserver-BDAM.out
+: /home/hduser/hbase/bin/hbase-daemon.sh: line 92: kill: (19112) - No such process
+: 
+: in/java: No such file or directory
+hduser@BDAM:~$ readlink -f $(which java)
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java
+hduser@BDAM:~$ nano ~/hbase/conf/hbase-env.sh
+hduser@BDAM:~$ grep JAVA_HOME ~/.bashrc
+hduser@BDAM:~$ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+hduser@BDAM:~$ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+hduser@BDAM:~$ source ~/.bashrc
+hduser@BDAM:~$ ~/hbase/bin/start-hbase.sh
+running master, logging to /home/hduser/hbase/bin/../logs/hbase-hduser-master-BDAM.out
+hduser@BDAM:~$ jps
+19697 Jps
+19355 HMaster
+17484 DataNode
+17949 ResourceManager
+17726 SecondaryNameNode
+17262 NameNode
+18094 NodeManager
+hduser@BDAM:~$ ~/hbase/bin/hbase shell
+HBase Shell
+Use "help" to get list of supported commands.
+Use "exit" to quit this interactive shell.
+For Reference, please visit: http://hbase.apache.org/2.0/book.html#shell
+Version 2.5.13, r6bdecfeb172bb0c19a94b6639546500fd7b3bb65, Mon Nov  3 17:06:55 PST 2025
+Took 0.0021 seconds                                                             
+hbase:001:0> exit
+hduser@BDAM:~$ hdfs dfs -ls /CA2_sba2331777
+Found 2 items
+-rw-r--r--   1 hduser supergroup     497117 2026-07-01 19:51 /CA2_sba2331777/HEO17.20260701204603.csv
+drwxr-xr-x   - hduser supergroup          0 2026-07-01 20:58 /CA2_sba2331777/cleaned_graduate_data
+hduser@BDAM:~$ mkdir ~/CA2
+hduser@BDAM:~$ hdfs dfs -get /CA2_sba2331777/HEO17*.csv ~/CA2/
+hduser@BDAM:~$ ls ~/CA2
+HEO17.20260701204603.csv
+hduser@BDAM:~$ ~/hbase/bin/start-hbase.sh
+master running as process 19355. Stop it first.
+hduser@BDAM:~$ ~/hbase/bin/hbase shell
+HBase Shell
+Use "help" to get list of supported commands.
+Use "exit" to quit this interactive shell.
+For Reference, please visit: http://hbase.apache.org/2.0/book.html#shell
+Version 2.5.13, r6bdecfeb172bb0c19a94b6639546500fd7b3bb65, Mon Nov  3 17:06:55 PST 2025
+Took 0.0042 seconds                                                             
+hbase:001:0> create 'education', 'info'
+Created table education
+Took 1.4434 seconds                                                             
+=> Hbase::Table - education
+hbase:002:0> list
+TABLE                                                                           
+education                                                                       
+1 row(s)
+Took 0.0402 seconds                                                             
+=> ["education"]
+hbase:003:0> head -5 ~/CA2/HEO17*.csv
+Traceback (most recent call last):
+SyntaxError ((hbase):3: syntax error, unexpected '~')
+head -5 ~/CA2/HEO17*.csv
+        ^
+hbase:004:0> ~/hbase/bin/hbase shell
+Traceback (most recent call last):
+SyntaxError ((hbase):4: unknown regexp option - b)
+~/hbase/bin/hbase shell
+          ^
+hbase:005:0> put 'education','1','info:Institution','ABC University'
+Took 0.2628 seconds                                                             
+hbase:006:0> put 'education','1','info:Country','Ireland'
+Took 0.0128 seconds                                                             
+hbase:007:0> put 'education','1','info:Students','12000'
+Took 0.0163 seconds                                                             
+hbase:008:0> put 'education','1','info:Year','2023'
+Took 0.0073 seconds                                                             
+hbase:009:0> 
+hbase:010:0> put 'education','2','info:Institution','XYZ College'
+Took 0.0123 seconds                                                             
+hbase:011:0> put 'education','2','info:Country','Ireland'
+Took 0.0103 seconds                                                             
+hbase:012:0> put 'education','2','info:Students','9000'
+Took 0.0095 seconds                                                             
+hbase:013:0> put 'education','2','info:Year','2023'
+Took 0.0104 seconds                                                             
+hbase:014:0> 
+hbase:015:0> put 'education','3','info:Institution','LMN Institute'
+Took 0.0112 seconds                                                             
+hbase:016:0> put 'education','3','info:Country','UK'
+Took 0.0165 seconds                                                             
+hbase:017:0> put 'education','3','info:Students','15000'
+Took 0.0075 seconds                                                             
+hbase:018:0> put 'education','3','info:Year','2024'
+Took 0.0275 seconds                                                             
+hbase:019:0> scan 'education'
+ROW                   COLUMN+CELL                                               
+ 1                    column=info:Country, timestamp=2026-07-02T20:17:39.198, va
+                      lue=Ireland                                               
+ 1                    column=info:Institution, timestamp=2026-07-02T20:17:39.112
+                      , value=ABC University                                    
+ 1                    column=info:Students, timestamp=2026-07-02T20:17:39.270, v
+                      alue=12000                                                
+ 1                    column=info:Year, timestamp=2026-07-02T20:17:39.364, value
+                      =2023                                                     
+ 2                    column=info:Country, timestamp=2026-07-02T20:17:39.517, va
+                      lue=Ireland                                               
+ 2                    column=info:Institution, timestamp=2026-07-02T20:17:39.450
+                      , value=XYZ College                                       
+ 2                    column=info:Students, timestamp=2026-07-02T20:17:39.587, v
+                      alue=9000                                                 
+ 2                    column=info:Year, timestamp=2026-07-02T20:17:39.662, value
+                      =2023                                                     
+ 3                    column=info:Country, timestamp=2026-07-02T20:17:39.814, va
+                      lue=UK                                                    
+ 3                    column=info:Institution, timestamp=2026-07-02T20:17:39.768
+                      , value=LMN Institute                                     
+ 3                    column=info:Students, timestamp=2026-07-02T20:17:39.885, v
+                      alue=15000                                                
+ 3                    column=info:Year, timestamp=2026-07-02T20:17:44.762, value
+                      =2024                                                     
+3 row(s)
+Took 0.0659 seconds                                                             
+hbase:020:0> get 'education','1'
+COLUMN                         CELL                                                                                  
+ info:Country                  timestamp=2026-07-02T20:17:39.198, value=Ireland                                      
+ info:Institution              timestamp=2026-07-02T20:17:39.112, value=ABC University                               
+ info:Students                 timestamp=2026-07-02T20:17:39.270, value=12000                                        
+ info:Year                     timestamp=2026-07-02T20:17:39.364, value=2023                                         
+1 row(s)
+Took 0.0732 seconds                                                                                                  
+hbase:021:0> count 'education'
+3 row(s)
+Took 0.0834 seconds                                                                                                  
+=> 3
+hbase:022:0> exit
+
