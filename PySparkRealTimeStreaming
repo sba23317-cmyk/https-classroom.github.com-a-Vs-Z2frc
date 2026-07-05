@@ -1,0 +1,118 @@
+hduser@BDAM:~$ sudo apt update
+[sudo] password for hduser: 
+Hit:1 http://ie.archive.ubuntu.com/ubuntu noble InRelease
+Get:2 http://ie.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:3 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Hit:4 http://ie.archive.ubuntu.com/ubuntu noble-backports InRelease            
+Ign:5 https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/7.0 InRelease
+Err:6 https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/7.0 Release
+  404  Not Found [IP: 54.230.114.28 443]
+Get:7 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [825 kB]
+Get:8 http://security.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [11.8 kB]
+Get:9 http://ie.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,077 kB]
+Get:10 http://ie.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [17.7 kB]
+Reading package lists... Done                               
+E: The repository 'https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/7.0 Release' does not have a Release file.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+hduser@BDAM:~$ java -version
+openjdk version "11.0.31" 2026-04-21
+OpenJDK Runtime Environment (build 11.0.31+11-post-1ubuntu1-24.04.2-Ubuntu)
+OpenJDK 64-Bit Server VM (build 11.0.31+11-post-1ubuntu1-24.04.2-Ubuntu, mixed mode, sharing)
+hduser@BDAM:~$ sudo apt install jupyter
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+jupyter is already the newest version (5.3.2-1ubuntu1).
+0 upgraded, 0 newly installed, 0 to remove and 18 not upgraded.
+hduser@BDAM:~$ pyspark
+[I 10:42:04.079 NotebookApp] Serving notebooks from local directory: /home/hduser
+[I 10:42:04.079 NotebookApp] Jupyter Notebook 6.4.12 is running at:
+[I 10:42:04.079 NotebookApp] http://localhost:8888/?token=645ad7724deadd23ecf32416506d468ded7c4ba830343596
+[I 10:42:04.079 NotebookApp]  or http://127.0.0.1:8888/?token=645ad7724deadd23ecf32416506d468ded7c4ba830343596
+[I 10:42:04.079 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 10:42:04.207 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/hduser/.local/share/jupyter/runtime/nbserver-52439-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=645ad7724deadd23ecf32416506d468ded7c4ba830343596
+     or http://127.0.0.1:8888/?token=645ad7724deadd23ecf32416506d468ded7c4ba830343596
+[W 10:42:18.921 NotebookApp] Notebook CA2/Untitled.ipynb is not trusted
+[W 10:42:18.955 NotebookApp] 404 GET /nbextensions/jupyter-js-widgets/extension.js?v=20260705104203 (127.0.0.1) 21.150000ms referer=http://localhost:8888/notebooks/CA2/Untitled.ipynb
+[I 10:42:19.430 NotebookApp] Kernel started: a874747e-f94d-4dbc-8a3d-ceb06467c217, name: python3
+[W 10:42:19.477 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20260705104203 (127.0.0.1) 3.650000ms referer=http://localhost:8888/notebooks/CA2/Untitled.ipynb
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/07/05 10:42:26 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/07/05 10:42:28 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+26/07/05 10:42:28 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[I 10:42:28.541 NotebookApp] 302 GET /tree (127.0.0.1) 4.180000ms
+[I 10:44:19.403 NotebookApp] Saving file at /CA2/Untitled.ipynb
+[W 10:44:19.403 NotebookApp] Notebook CA2/Untitled.ipynb is not trusted
+26/07/05 10:45:13 WARN SparkSession: Using an existing Spark session; only runtime SQL configurations will take effect.
+[I 10:46:19.466 NotebookApp] Saving file at /CA2/Untitled.ipynb                 
+[W 10:46:19.467 NotebookApp] Notebook CA2/Untitled.ipynb is not trusted
+[I 10:48:19.408 NotebookApp] Saving file at /CA2/Untitled.ipynb                 
+/usr/lib/python3/dist-packages/nbformat/__init__.py:129: MissingIDFieldWarning: Code cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+/usr/lib/python3/dist-packages/notebook/services/contents/manager.py:353: MissingIDFieldWarning: Code cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate_nb(model['content'])
+[I 10:50:19.402 NotebookApp] Saving file at /CA2/Untitled.ipynb
+26/07/05 10:51:03 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[I 10:52:19.419 NotebookApp] Saving file at /CA2/Untitled.ipynb
+[I 10:54:19.403 NotebookApp] Saving file at /CA2/Untitled.ipynb
+[I 10:56:19.407 NotebookApp] Saving file at /CA2/Untitled.ipynb
+[W 10:57:41.462 NotebookApp] Notebook CA2/Untitled.ipynb is not trusted
+[I 11:06:12.667 NotebookApp] Starting buffering for a874747e-f94d-4dbc-8a3d-ceb06467c217:c883ae5782aa48198284920b3e661be5
+^C[I 11:23:41.663 NotebookApp] interrupted
+Serving notebooks from local directory: /home/hduser
+1 active kernel
+Jupyter Notebook 6.4.12 is running at:
+http://localhost:8888/?token=645ad7724deadd23ecf32416506d468ded7c4ba830343596
+ or http://127.0.0.1:8888/?token=645ad7724deadd23ecf32416506d468ded7c4ba830343596
+Shutdown this notebook server (y/[n])? No answer for 5s: resuming operation...
+^C[I 11:23:56.821 NotebookApp] interrupted
+Serving notebooks from local directory: /home/hduser
+1 active kernel
+Jupyter Notebook 6.4.12 is running at:
+http://localhost:8888/?token=645ad7724deadd23ecf32416506d468ded7c4ba830343596
+ or http://127.0.0.1:8888/?token=645ad7724deadd23ecf32416506d468ded7c4ba830343596
+Shutdown this notebook server (y/[n])? y
+[C 11:23:59.610 NotebookApp] Shutdown confirmed
+[I 11:23:59.618 NotebookApp] Shutting down 1 kernel
+[I 11:23:59.651 NotebookApp] Kernel shutdown: a874747e-f94d-4dbc-8a3d-ceb06467c217
+26/07/05 11:23:59 WARN JavaUtils: Attempt to delete using native Unix OS command failed for path = /tmp/blockmgr-7f2959f6-bf5a-4c2f-8fe4-cc0e076c0794. Falling back to Java IO way
+java.io.IOException: Failed to delete: /tmp/blockmgr-7f2959f6-bf5a-4c2f-8fe4-cc0e076c0794
+	at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingUnixNative(JavaUtils.java:174)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:109)
+	at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:90)
+	at org.apache.spark.util.SparkFileUtils.deleteRecursively(SparkFileUtils.scala:121)
+	at org.apache.spark.util.SparkFileUtils.deleteRecursively$(SparkFileUtils.scala:120)
+	at org.apache.spark.util.Utils$.deleteRecursively(Utils.scala:1126)
+	at org.apache.spark.storage.DiskBlockManager.$anonfun$doStop$1(DiskBlockManager.scala:368)
+	at org.apache.spark.storage.DiskBlockManager.$anonfun$doStop$1$adapted(DiskBlockManager.scala:364)
+	at scala.collection.IndexedSeqOptimized.foreach(IndexedSeqOptimized.scala:36)
+	at scala.collection.IndexedSeqOptimized.foreach$(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:198)
+	at org.apache.spark.storage.DiskBlockManager.doStop(DiskBlockManager.scala:364)
+	at org.apache.spark.storage.DiskBlockManager.$anonfun$addShutdownHook$2(DiskBlockManager.scala:346)
+	at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1928)
+	at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.util.Try$.apply(Try.scala:213)
+	at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+	at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+[I 11:24:00.999 NotebookApp] Shutting down 0 terminals
+hduser@BDAM:~$ gedit
+
+
+
